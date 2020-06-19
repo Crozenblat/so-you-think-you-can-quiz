@@ -31,7 +31,7 @@ const CategoryLabel = styled.label`
 const CategoryButton = props => {
     return (
         <Fragment>
-            <CategoryBtn type="radio" id={props.id} name="category" value={props.value} defaultChecked={props.checked}/>
+            <CategoryBtn type="radio" id={props.id} name="category" value={props.value} defaultChecked={props.checked} onClick={props.clicked}/>
             <CategoryLabel htmlFor={props.id}>{props.children}</CategoryLabel>
         </Fragment>
     )

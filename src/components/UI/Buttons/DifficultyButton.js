@@ -17,14 +17,14 @@ const Button = styled.button`
     border-width: 1px;
     border-style: solid;
     border-color: ${props =>
-        props.type === "easy" && "green" ||
-        props.type === "medium" && "orange" ||
-        props.type === "hard" && "red"
+        props.difficulty === "easy" && "green" ||
+        props.difficulty === "medium" && "orange" ||
+        props.difficulty === "hard" && "red"
     };
     color: ${props =>
-        props.type === "easy" && "green" ||
-        props.type === "medium" && "orange" ||
-        props.type === "hard" && "red"
+        props.difficulty === "easy" && "green" ||
+        props.difficulty === "medium" && "orange" ||
+        props.difficulty === "hard" && "red"
     };
 
     &:hover{
@@ -32,9 +32,9 @@ const Button = styled.button`
         box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
         color: white;
         background: ${props =>
-        props.type === "easy" && "green" ||
-        props.type === "medium" && "orange" ||
-        props.type === "hard" && "red"
+        props.difficulty === "easy" && "green" ||
+        props.difficulty === "medium" && "orange" ||
+        props.difficulty === "hard" && "red"
     };
     }
 
@@ -46,7 +46,7 @@ const Button = styled.button`
 
 const button = props => {
     return (
-        <Button type={props.type}>{props.children}</Button>
+        <Button difficulty={props.difficulty} onClick={() => props.clicked(props.difficulty)}>{props.children}</Button>
     );
 };
 

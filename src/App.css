@@ -12,11 +12,6 @@ html {
 
 body {
   box-sizing: border-box;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to left,#18c746,#1173ff);
 }
 
 #root{

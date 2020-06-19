@@ -10,7 +10,7 @@ const Panel = styled.div`
 `;
 
 const BackgroundPanel = props => {
-    return <Panel style={{zIndex: props.zIndex, height: props.height, width: props.width}}/>
+    return <Panel ref={props.passedRef} style={{zIndex: props.zIndex, height: props.height, width: props.width}}/>
 };
 
 export default BackgroundPanel;
