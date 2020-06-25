@@ -27,23 +27,30 @@ const SettingsPnl = styled.div`
 const SettingsPanel = props => {
 
     const setCategory = (event) => {props.setCategory(event.target.value)}
+    const categories = [
+        {categoryNumber:"category=31", categoryName:"Anime & Manga"},
+        {categoryNumber:"category=10", categoryName:"Books"},
+        {categoryNumber:"category=18", categoryName:"Computers"},
+        {categoryNumber:"category=11", categoryName:"Film"},
+        {categoryNumber:"category=22", categoryName:"Geography"},
+        {categoryNumber:"category=23", categoryName:"History"},
+        {categoryNumber:"category=12", categoryName:"Music"},
+        {categoryNumber:"category=17", categoryName:"Science & Nature"},
+        {categoryNumber:"category=14", categoryName:"Television"},
+        {categoryNumber:"category=15", categoryName:"Video Games"},
+        {categoryNumber:"category=9", categoryName:"General Knowledge"}]
 
     return (
         <SettingsPnl active={props.active}>
             <SettingsHeading>Categories</SettingsHeading>
             <SettingsExitButton setActiveFalse={props.setActiveFalse}/>
+    
             <form action="#">
-                <CategoryButton id="anime-&-manga" value="category=31" clicked={setCategory}>Anime & Manga</CategoryButton>
-                <CategoryButton id="books" value="category=10" clicked={setCategory}>Books</CategoryButton>
-                <CategoryButton id="computers" value="category=18" clicked={setCategory}>Computers</CategoryButton>
-                <CategoryButton id="film" value="category=11" clicked={setCategory}>Film</CategoryButton>
-                <CategoryButton id="geography" value="category=22" clicked={setCategory}>Geography</CategoryButton>
-                <CategoryButton id="history" value="category=23" clicked={setCategory}>History</CategoryButton>
-                <CategoryButton id="music" value="category=12" clicked={setCategory}>Music</CategoryButton>
-                <CategoryButton id="science-&-nature" value="category=17" clicked={setCategory}>Science & Nature</CategoryButton>
-                <CategoryButton id="television" value="category=14" clicked={setCategory}>Television</CategoryButton>
-                <CategoryButton id="video-games" value="category=15" clicked={setCategory}>Video Games</CategoryButton>
-                <CategoryButton id="general-knowledge" value="category=9" clicked={setCategory} checked>General Knowledge</CategoryButton>
+                {categories.map((category, index) => {
+                    let checked = false
+                    if(index === categories.length - 1){checked = true};
+                    return <CategoryButton  key={index} id={index} value={category.categoryNumber} clicked={setCategory} checked={checked}>{category.categoryName}</CategoryButton>
+                })}
             </form>
             <QuestionAmountInput questionAmount={props.questionAmount} setQuestionAmount={props.setQuestionAmount}>Number of Questions:</QuestionAmountInput>
         </SettingsPnl>

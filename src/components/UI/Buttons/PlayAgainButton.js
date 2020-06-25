@@ -31,7 +31,7 @@ grid-column: 11 / 13;
 `;
 
 const PlayAgainButton = props => {
-return <PlayAgainBtn onClick={() => window.location.reload(false)}>{props.children}</PlayAgainBtn>
+return <PlayAgainBtn onClick={props.click}>{props.children}</PlayAgainBtn>
 }
 
 export default PlayAgainButton

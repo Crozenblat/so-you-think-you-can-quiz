@@ -9,7 +9,6 @@ const Button = styled.button`
     width: 11.8rem;
     margin: 0 1rem;
     cursor: pointer;
-    backface-visibility: hidden;
     outline: none;
     transition: all 0.2s;
     font-size: 2.8rem;
