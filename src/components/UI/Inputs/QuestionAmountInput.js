@@ -27,25 +27,21 @@ const QuestionAmtLabel = styled.label`
 
 const QuestionAmountInput = props => {
 
-    const increment = () => {
-        let incrementedValue = props.questionAmount + 1;
+    const makeIncrementer = amount => () => {
+        let incrementedValue = props.questionAmount + amount;
         if(validationHandler(incrementedValue)){
             props.setQuestionAmount(incrementedValue);
         }
-    };
+    }
 
-    const decrement = () => {
-        let decrementedValue = props.questionAmount - 1;
-        if(validationHandler(decrementedValue)){
-            props.setQuestionAmount(decrementedValue);
-        }
-    };
+    const increment = makeIncrementer(1);
+    const decrement = makeIncrementer(-1);
 
     const inputChangedHandler = (event) => {
         let userValue = Number(event.target.value);
         if(validationHandler(userValue)){
             props.setQuestionAmount(userValue);
-        };
+        }
     };
 
     const validationHandler = (value) => {
@@ -63,6 +59,7 @@ const QuestionAmountInput = props => {
             <QuestionAmtLabel htmlFor="question-amount">{props.children}</QuestionAmtLabel>
             <QuestionAmtInput 
             type="number" 
+            data-testid="question-amount"
             id="question-amount" 
             value={props.questionAmount} 
             onChange={inputChangedHandler}/>

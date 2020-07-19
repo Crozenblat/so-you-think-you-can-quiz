@@ -32,26 +32,26 @@ const CorrectAnswer = styled.p`
         props.correct === false && "#d75a4a"
     };
     font-weight: bold;
+    display: block;
 `;
 
 const AnswersPanel = props => {
-    return <AnswersPnl>
+    return <AnswersPnl tabIndex="1">
                 {props.questionList.map(
                         question => { 
                         let indicator;
                         if(question.correct){
-                            indicator = <Indicator src={CorrectImage}/>
+                            indicator = <Indicator src={CorrectImage} alt={"Checkmark"}/>
                         }else{
-                            indicator = <Indicator src={IncorrectImage}/>
+                            indicator = <Indicator src={IncorrectImage} alt={"X"}/>
                         }
 
                         return (
                             <li key={question.question}>
-                                {indicator}{decodeURIComponent(question.question)};
-                                <CorrectAnswer correct={question.correct}>
-                                    {question.correct ? null : <p>You Selected: {decodeURIComponent(question.selected)}</p>}
-                                    Answer: {decodeURIComponent(question.correct_answer)}
-                                </CorrectAnswer>
+                                {indicator}{decodeURIComponent(question.question)}
+                                {question.correct ? null : 
+                                <CorrectAnswer correct={question.correct}>You Selected: {decodeURIComponent(question.selected)}</CorrectAnswer>}
+                                <CorrectAnswer correct={question.correct}>Answer: {decodeURIComponent(question.correct_answer)}</CorrectAnswer>
                             </li>
                         )
                     }

@@ -15,13 +15,13 @@ const AnimationWrppr = styled.div`
 
     &.slide-enter-done{
         transform: translateY(0px);
-        opacity:1;
+        opacity: 1;
         transition: all 400ms;
     }
 
     &.slide-exit{
         transform: translateY(0px);
-        opacity:1;
+        opacity: 1;
     }
 
     &.slide-exit-active{

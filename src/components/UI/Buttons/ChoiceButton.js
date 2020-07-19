@@ -3,10 +3,11 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 const ChoiceRadio = styled.input`
-    display: none;
+    width: 0rem;
+    height: 0rem;
 
-    &:checked + label{
-
+    &:checked + label, &:focus + label{
+        
         &::before{
             width: 100%;
         }
@@ -58,11 +59,10 @@ const ChoiceLabel = styled.label`
 `; 
 const ChoiceButton = props => {
 
-    return (<Fragment>
+    return  <Fragment>
                 <ChoiceRadio type="radio" disabled={props.disabled} id={props.value} name="choice" onClick={() => props.clicked(props.value)}/>
                 <ChoiceLabel htmlFor={props.value} correct={props.value === props.correct && props.isCorrect === false}>{props.children}</ChoiceLabel>
             </Fragment>
-    )
 }
 
 export default ChoiceButton;

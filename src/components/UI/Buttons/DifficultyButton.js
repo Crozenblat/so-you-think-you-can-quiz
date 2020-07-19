@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-const Button = styled.button`
+const DifficultyButton = styled.button`
     border: none;
     border-radius: 5px;
     height: 8rem;
@@ -26,7 +26,7 @@ const Button = styled.button`
         props.difficulty === "hard" && "red"
     };
 
-    &:hover{
+    &:hover, &:focus{
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
         color: white;
@@ -34,7 +34,7 @@ const Button = styled.button`
         props.difficulty === "easy" && "green" ||
         props.difficulty === "medium" && "orange" ||
         props.difficulty === "hard" && "red"
-    };
+        };
     }
 
     &:active{
@@ -45,7 +45,7 @@ const Button = styled.button`
 
 const button = props => {
     return (
-        <Button difficulty={props.difficulty} onClick={() => props.clicked(props.difficulty)}>{props.children}</Button>
+        <DifficultyButton tabIndex={props.tabIndex} difficulty={props.difficulty} onClick={() => props.clicked(props.difficulty)}>{props.children}</DifficultyButton>
     );
 };
 

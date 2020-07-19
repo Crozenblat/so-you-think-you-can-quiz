@@ -1,0 +1,600 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Starting Screen should render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-AxjAm cMjvdi"
+      >
+        <div
+          class="sc-fzokOt iqMaKF slide-enter slide-enter-active"
+        >
+          <h1
+            class="sc-fznWqX geNzE"
+          >
+            So you think you can quiz!
+          </h1>
+          <p
+            class="sc-fzoiQi lkEGKF"
+          >
+            Please select your difficulty below
+          </p>
+          <div>
+            <button
+              class="sc-AxiKw hhNwSg"
+            >
+              Easy
+            </button>
+            <button
+              class="sc-AxiKw fnWvaT"
+            >
+              Medium
+            </button>
+            <button
+              class="sc-AxiKw bvltNc"
+            >
+              Hard
+            </button>
+          </div>
+          <button
+            class="sc-AxhCb comPFF"
+          >
+            Settings
+          </button>
+          <div
+            class="sc-fznZeY cXSVUF"
+            data-testid="settings-panel"
+          >
+            <h1
+              class="sc-fznKkj jPpNVj"
+            >
+              Categories
+            </h1>
+            <form
+              action="#"
+            >
+              <input
+                class="sc-Axmtr gifGgb"
+                id="0"
+                name="category"
+                type="radio"
+                value="category=31"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="0"
+              >
+                Anime & Manga
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="1"
+                name="category"
+                type="radio"
+                value="category=10"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="1"
+              >
+                Books
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="2"
+                name="category"
+                type="radio"
+                value="category=18"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="2"
+              >
+                Computers
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="3"
+                name="category"
+                type="radio"
+                value="category=11"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="3"
+              >
+                Film
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="4"
+                name="category"
+                type="radio"
+                value="category=22"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="4"
+              >
+                Geography
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="5"
+                name="category"
+                type="radio"
+                value="category=23"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="5"
+              >
+                History
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="6"
+                name="category"
+                type="radio"
+                value="category=12"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="6"
+              >
+                Music
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="7"
+                name="category"
+                type="radio"
+                value="category=17"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="7"
+              >
+                Science & Nature
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="8"
+                name="category"
+                type="radio"
+                value="category=14"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="8"
+              >
+                Television
+              </label>
+              <input
+                class="sc-Axmtr gifGgb"
+                id="9"
+                name="category"
+                type="radio"
+                value="category=15"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="9"
+              >
+                Video Games
+              </label>
+              <input
+                checked=""
+                class="sc-Axmtr gifGgb"
+                id="10"
+                name="category"
+                type="radio"
+                value="category=9"
+              />
+              <label
+                class="sc-AxmLO jxwHeO"
+                for="10"
+              >
+                General Knowledge
+              </label>
+            </form>
+            <label
+              class="sc-fzplWN ihqSyJ"
+              for="question-amount"
+            >
+              Number of Questions:
+            </label>
+            <input
+              class="sc-fzpans hHctQZ"
+              data-testid="question-amount"
+              id="question-amount"
+              type="number"
+              value="10"
+            />
+            <img
+              alt="Up Arrow"
+              class="sc-fzozJi hEbiXo"
+              src="[object Object]"
+            />
+            <img
+              alt="Down Arrow"
+              class="sc-fzoLsD gufRLf"
+              src="[object Object]"
+            />
+            <button
+              class="sc-fznyAO fRcocx"
+              data-testid="settings-exit-button"
+            >
+              X
+            </button>
+          </div>
+          <div>
+            <p>
+              Favicon made by 
+              <a
+                href="https://www.flaticon.com/authors/roundicons"
+                title="Roundicons"
+              >
+                Roundicons
+              </a>
+               from 
+              <a
+                href="https://www.flaticon.com/"
+                title="Flaticon"
+              >
+                www.flaticon.com
+              </a>
+            </p>
+            <p>
+              Icons made by 
+              <a
+                href="https://www.flaticon.com/authors/smashicons"
+                title="Smashicons"
+              >
+                Smashicons
+              </a>
+               & 
+              <a
+                href="https://www.flaticon.com/authors/pixel-perfect"
+                title="Pixel perfect"
+              >
+                Pixel Perfect
+              </a>
+               from 
+              <a
+                href="https://www.flaticon.com/"
+                title="Flaticon"
+              >
+                www.flaticon.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-AxjAm cMjvdi"
+    >
+      <div
+        class="sc-fzokOt iqMaKF slide-enter slide-enter-active"
+      >
+        <h1
+          class="sc-fznWqX geNzE"
+        >
+          So you think you can quiz!
+        </h1>
+        <p
+          class="sc-fzoiQi lkEGKF"
+        >
+          Please select your difficulty below
+        </p>
+        <div>
+          <button
+            class="sc-AxiKw hhNwSg"
+          >
+            Easy
+          </button>
+          <button
+            class="sc-AxiKw fnWvaT"
+          >
+            Medium
+          </button>
+          <button
+            class="sc-AxiKw bvltNc"
+          >
+            Hard
+          </button>
+        </div>
+        <button
+          class="sc-AxhCb comPFF"
+        >
+          Settings
+        </button>
+        <div
+          class="sc-fznZeY cXSVUF"
+          data-testid="settings-panel"
+        >
+          <h1
+            class="sc-fznKkj jPpNVj"
+          >
+            Categories
+          </h1>
+          <form
+            action="#"
+          >
+            <input
+              class="sc-Axmtr gifGgb"
+              id="0"
+              name="category"
+              type="radio"
+              value="category=31"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="0"
+            >
+              Anime & Manga
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="1"
+              name="category"
+              type="radio"
+              value="category=10"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="1"
+            >
+              Books
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="2"
+              name="category"
+              type="radio"
+              value="category=18"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="2"
+            >
+              Computers
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="3"
+              name="category"
+              type="radio"
+              value="category=11"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="3"
+            >
+              Film
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="4"
+              name="category"
+              type="radio"
+              value="category=22"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="4"
+            >
+              Geography
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="5"
+              name="category"
+              type="radio"
+              value="category=23"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="5"
+            >
+              History
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="6"
+              name="category"
+              type="radio"
+              value="category=12"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="6"
+            >
+              Music
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="7"
+              name="category"
+              type="radio"
+              value="category=17"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="7"
+            >
+              Science & Nature
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="8"
+              name="category"
+              type="radio"
+              value="category=14"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="8"
+            >
+              Television
+            </label>
+            <input
+              class="sc-Axmtr gifGgb"
+              id="9"
+              name="category"
+              type="radio"
+              value="category=15"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="9"
+            >
+              Video Games
+            </label>
+            <input
+              checked=""
+              class="sc-Axmtr gifGgb"
+              id="10"
+              name="category"
+              type="radio"
+              value="category=9"
+            />
+            <label
+              class="sc-AxmLO jxwHeO"
+              for="10"
+            >
+              General Knowledge
+            </label>
+          </form>
+          <label
+            class="sc-fzplWN ihqSyJ"
+            for="question-amount"
+          >
+            Number of Questions:
+          </label>
+          <input
+            class="sc-fzpans hHctQZ"
+            data-testid="question-amount"
+            id="question-amount"
+            type="number"
+            value="10"
+          />
+          <img
+            alt="Up Arrow"
+            class="sc-fzozJi hEbiXo"
+            src="[object Object]"
+          />
+          <img
+            alt="Down Arrow"
+            class="sc-fzoLsD gufRLf"
+            src="[object Object]"
+          />
+          <button
+            class="sc-fznyAO fRcocx"
+            data-testid="settings-exit-button"
+          >
+            X
+          </button>
+        </div>
+        <div>
+          <p>
+            Favicon made by 
+            <a
+              href="https://www.flaticon.com/authors/roundicons"
+              title="Roundicons"
+            >
+              Roundicons
+            </a>
+             from 
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+            >
+              www.flaticon.com
+            </a>
+          </p>
+          <p>
+            Icons made by 
+            <a
+              href="https://www.flaticon.com/authors/smashicons"
+              title="Smashicons"
+            >
+              Smashicons
+            </a>
+             & 
+            <a
+              href="https://www.flaticon.com/authors/pixel-perfect"
+              title="Pixel perfect"
+            >
+              Pixel Perfect
+            </a>
+             from 
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+            >
+              www.flaticon.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

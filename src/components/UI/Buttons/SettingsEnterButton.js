@@ -16,8 +16,9 @@ const SettingsEntrBtn = styled.button`
     transition: width 0.5s;
     cursor: pointer;
 
-    &:hover{
+    &:hover, &:focus{
         width: 9rem;
+        outline: none;
     }
     
     &::before{
@@ -31,10 +32,6 @@ const SettingsEntrBtn = styled.button`
         width: 2rem;
         left: -2rem;
         top: 0rem;
-    }
-
-    &:focus{
-        outline: none;
     }
 `;
 

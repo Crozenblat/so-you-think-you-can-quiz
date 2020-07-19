@@ -24,6 +24,7 @@ const FinalGrade = styled.div`
 
 const FinalScore = styled.span`
     font-size: 3rem;
+    text-transform: capitalize;
     grid-column: 6 / 9;
     grid-row: 3 / 4;
     justify-self: left;
@@ -32,6 +33,7 @@ const FinalScore = styled.span`
 
 const FinalPercentage = styled.span`
     font-size: 3rem;
+    text-transform: capitalize;
     grid-column: 6 / 10;
     grid-row: 4 / 5;
     align-self: center;
@@ -92,7 +94,7 @@ const FinalScreen = props => {
     return (
         <FnlGrid>
             <FinalGrade>{grade}</FinalGrade>
-            <FinalScore>Final Score: {props.score}/{props.questionAmount}</FinalScore>
+            <FinalScore>Final score: {props.score}/{props.questionAmount}</FinalScore>
             <FinalPercentage>Final percentage: {percentage}%</FinalPercentage>
             <PlayAgainButton 
             click={() => {

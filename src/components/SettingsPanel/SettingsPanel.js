@@ -26,7 +26,6 @@ const SettingsPnl = styled.div`
 
 const SettingsPanel = props => {
 
-    const setCategory = (event) => {props.setCategory(event.target.value)}
     const categories = [
         {categoryNumber:"category=31", categoryName:"Anime & Manga"},
         {categoryNumber:"category=10", categoryName:"Books"},
@@ -38,21 +37,29 @@ const SettingsPanel = props => {
         {categoryNumber:"category=17", categoryName:"Science & Nature"},
         {categoryNumber:"category=14", categoryName:"Television"},
         {categoryNumber:"category=15", categoryName:"Video Games"},
-        {categoryNumber:"category=9", categoryName:"General Knowledge"}]
+        {categoryNumber:"category=9", categoryName:"General Knowledge"}];
 
     return (
-        <SettingsPnl active={props.active}>
-            <SettingsHeading>Categories</SettingsHeading>
-            <SettingsExitButton setActiveFalse={props.setActiveFalse}/>
-    
+        <SettingsPnl active={props.active} data-testid="settings-panel">
+            <SettingsHeading>Categories</SettingsHeading>    
             <form action="#">
                 {categories.map((category, index) => {
-                    let checked = false
-                    if(index === categories.length - 1){checked = true};
-                    return <CategoryButton  key={index} id={index} value={category.categoryNumber} clicked={setCategory} checked={checked}>{category.categoryName}</CategoryButton>
+                    let checked = false;
+                    let tabIndex = null
+                    if(index === categories.length - 1){checked = true;};
+                    return <CategoryButton 
+                                key={index} 
+                                id={index} 
+                                value={category.categoryNumber} 
+                                clicked={props.setCategory}
+                                checked={checked}
+                                tabIndex={tabIndex}
+                            >{category.categoryName}
+                            </CategoryButton>
                 })}
             </form>
             <QuestionAmountInput questionAmount={props.questionAmount} setQuestionAmount={props.setQuestionAmount}>Number of Questions:</QuestionAmountInput>
+            <SettingsExitButton testId="settings-exit-button" setActiveFalse={props.setActiveFalse}/>
         </SettingsPnl>
     )
 };

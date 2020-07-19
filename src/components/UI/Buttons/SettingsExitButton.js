@@ -15,18 +15,15 @@ const SettingsExtBtn = styled.button`
     font-size: 4.5rem;
     background: transparent;
 
-    &:hover{
+    &:hover, &:focus{
         color: gold;
         background: black;
-    }
-
-    &:focus{
-        outline: none
+        outline: none;
     }
 `;
 
 const SettingsExitButton = props => {
-    return <SettingsExtBtn onClick={props.setActiveFalse}>X</SettingsExtBtn>
+    return <SettingsExtBtn data-testid={props.testId} onClick={props.setActiveFalse}>X</SettingsExtBtn>
 };
 
 export default SettingsExitButton;

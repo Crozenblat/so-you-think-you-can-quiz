@@ -20,13 +20,8 @@ grid-column: 11 / 13;
 }
 
 &:active{
-    outline: none;
     transform: translateY(2px);
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-}
-
-&:focus{
-    outline: none;
 }
 `;
 

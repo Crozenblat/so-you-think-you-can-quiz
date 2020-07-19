@@ -17,7 +17,8 @@ import SettingsPanel from "../../components/SettingsPanel/SettingsPanel";
 
 import AnimationWrapper from "../../components/UI/AnimationWrapper/AnimationWrapper";
 import FinalScreen from "../../components/FinalScreen/FinalScreen";
-import { mixUp } from "../../shared/utility";
+
+import { mixUp } from "../../utilities/questionUtilities";
 
 
 const Heading = styled.h1`
@@ -32,6 +33,7 @@ const Heading = styled.h1`
 `;
 
 const Message = styled.p`
+    text-transform: capitalize;
     font-size: ${props => props.hasError ?  "2rem" : "3rem"};
     color: ${props => props.hasError ? "red": "white"};
 `;
@@ -42,23 +44,15 @@ const ChoiceForm = styled.form`
 `;
 
 const TriviaBox = props => {
-//Edit header content
+//Edit Header Content
     const [headingText, setHeadingText] = useState("So you think you can quiz!");
-    const [messageText, setMessageText] = useState("Please select your difficulty below.");
-
+    const [messageText, setMessageText] = useState("Please select your difficulty below");
+//Settings Panel Visibility
     const [settingsActive, setSettingsActive] = useState(false);
-//Fetch Questions
+//Parameters to Fetch Questions
     const [questionAmount, setQuestionAmount] = useState(10);
     const [category, setCategory] = useState("category=9");
-    const [difficulty, setDifficulty] = useState(null);
-    useEffect(() => {
-        if(difficulty !== null){
-            fetchQuestions(questionAmount, category, difficulty)
-            setDisplayView(false);
-        };
-    }, 
-    [difficulty])
-//Serve questions
+//Parameters to Serve Questions
     const [questionList, setQuestionList] = useState(null);
     const [questionNumber, setQuestionNumber] = useState(null);
     const [choices, setChoices] = useState(null);
@@ -67,33 +61,30 @@ const TriviaBox = props => {
     const [isCorrect, setIsCorrect] = useState(null);
     const [score, setScore] = useState(0);
     const [isDisabled, setIsDisabled] = useState(null);
-    //Control screen view
+//Control Screen View
     const [view, setView] = useState("welcomeScreen");
-    useEffect(() => {
-        if(questionList !== null && questionNumber < questionAmount){
-            displayNextQuestion(questionList[questionNumber])
-            setView("questionScreen")
-        } else if(questionNumber === questionAmount && questionNumber !== null){
-            props.colorChange();
-            setDisplayView(true);
-            setView("finalScreen");
-        }
-    },[questionNumber])
     const [displayView, setDisplayView] = useState(false);
+//Necessary in order to update the questionNumber before calling displayNextQuestion(); Acts as a callback to setQuestionNumber.
     useEffect(() => {
         setDisplayView(true);
-    }, [])
+        if(questionList !== null && questionNumber < questionList.length){
+            displayNextQuestion(questionList[questionNumber]);
+            setView("questionScreen");
+        } else if(questionNumber !== null && questionNumber === questionList.length){
+            props.colorChange();
+            setView("finalScreen");
+        }
+    },[questionNumber]);
 
-    const fetchQuestions = async (amount, category, difficulty) => {
-            let questions = await axios.get(`?amount=${amount}&${category}&difficulty=${difficulty}&type=multiple&encode=url3986`);
-            setQuestionList(questions.data.results);
-            setQuestionNumber(0);
+    const initializeQuestions = async (amount, category, difficulty) => {
+        let questions = await axios.get(`?amount=${amount}&${category}&difficulty=${difficulty}&type=multiple&encode=url3986`);
+        setQuestionList(questions.data.results);
+        setQuestionNumber(0);
     };
 
     const displayNextQuestion = (newQuestion) => {
-        setChoices((mixUp([newQuestion.correct_answer, ...newQuestion.incorrect_answers])));
         props.colorChange();
-        setDisplayView(true);
+        setChoices((mixUp([newQuestion.correct_answer, ...newQuestion.incorrect_answers])));
         setCorrectAnswer(decodeURIComponent(newQuestion.correct_answer));
         setIsCorrect(null);
         setHeadingText(`Question ${questionNumber + 1}`);
@@ -104,9 +95,9 @@ const TriviaBox = props => {
         if(selectedAnswer === correctAnswer){
             props.colorChange("linear-gradient(to left,#56AB2F,#A8E063)");
             props.undulatePanels();
+            questionList[questionNumber].correct = true;
             setIsCorrect(true);
             setHeadingText("Correct!");
-            questionList[questionNumber].correct = true;
             setScore(prev => prev + 1);
         } else if(selectedAnswer !== correctAnswer){
             props.colorChange("linear-gradient(to left,#ED213A,#93291E)");
@@ -119,6 +110,7 @@ const TriviaBox = props => {
         setIsDisabled(true);
         setTimeout(() => {
             setDisplayView(false);
+//Throws a memory leak warning during testing for setting state on an unmounted component. Necessary for animation to work.
             setTimeout(() => {
                 setIsDisabled(false);
                 setQuestionNumber(prev => prev + 1);
@@ -130,12 +122,25 @@ const TriviaBox = props => {
 
     const boxText = <Fragment>
                         <Heading correct={isCorrect}>{headingText}</Heading>
-                        <Message hasError={props.hasError}>{props.hasError ? props.errMessage : messageText}</Message>
+                        <Message>{messageText}</Message>
                     </Fragment>
 
     switch(view){
         case "welcomeScreen":
             screen = <AnimationWrapper>
+                        {boxText}
+                        <div>
+                            {["Easy", "Medium", "Hard"].map((buttonLabel, index) => {
+                                return <DifficultyButton 
+                                        key={index}
+                                        difficulty={buttonLabel.toLowerCase()} 
+                                        clicked={(difficulty) => {
+                                            initializeQuestions(questionAmount, category, difficulty);
+                                            setDisplayView(false);
+                                        }}
+                                        >{buttonLabel}</DifficultyButton>
+                            })}
+                        </div>
                         <SettingsEnterButton setActiveTrue={() => setSettingsActive(true)}>Settings</SettingsEnterButton>
                         <SettingsPanel 
                             active={settingsActive} 
@@ -144,12 +149,6 @@ const TriviaBox = props => {
                             setQuestionAmount={setQuestionAmount}
                             setCategory={setCategory}
                             />
-                        {boxText}
-                        <div>
-                            <DifficultyButton difficulty="easy" clicked={setDifficulty}>Easy</DifficultyButton>
-                            <DifficultyButton difficulty="medium" clicked={setDifficulty}>Medium</DifficultyButton>
-                            <DifficultyButton difficulty="hard" clicked={setDifficulty}>Hard</DifficultyButton>
-                        </div>
                         <div>
                             <p>Favicon made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
                             <p>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> & <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel Perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
@@ -157,10 +156,11 @@ const TriviaBox = props => {
                      </AnimationWrapper>
             break;
         case "questionScreen":
+            let choiceButtons = choices.map((option) => <ChoiceButton key={option} disabled={isDisabled} isCorrect={isCorrect} correct={correctAnswer} value={option} clicked={(choice) => setSelectedAnswer(decodeURIComponent(choice))}>{option}</ChoiceButton>);
             screen = <AnimationWrapper>
                         {boxText}
                         <ChoiceForm>
-                            {choices.map((option, i) => <ChoiceButton key={choices[i]} disabled={isDisabled} isCorrect={isCorrect} correct={correctAnswer} value={choices[i]} clicked={(choice) => setSelectedAnswer(decodeURIComponent(choice))}>{choices[i]}</ChoiceButton>)}
+                            {choiceButtons}
                             <SubmitButton isDisabled={!selectedAnswer} clicked={(e) => {e.preventDefault(); checkAnswer();}}>Submit</SubmitButton>
                         </ChoiceForm>
                      </AnimationWrapper>
@@ -172,7 +172,7 @@ const TriviaBox = props => {
                             setDisplayView={setDisplayView}
                             score={score}
                             colorChange={props.colorChange}
-                            questionAmount={questionAmount}
+                            questionAmount={questionList.length}
                             questionList={questionList}
                         />
                      </AnimationWrapper>
